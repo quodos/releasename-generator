@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import Haikunator from 'haikunator';
-import { useClipboard } from '@vueuse/core';
+import { useClipboard, useWebNotification } from '@vueuse/core';
 
 const haikunator = new Haikunator({
   seed: 'custom-seed',
@@ -20,6 +20,18 @@ onMounted(() => {
 });
 
 const { copy } = useClipboard({ source: name });
+const { show } = useWebNotification({
+  title: 'Release name copied to clipboard!',
+  dir: 'auto',
+  lang: 'en',
+  renotify: true,
+  tag: 'test',
+});
+
+const copyToClipboard = () => {
+  copy();
+  show();
+};
 </script>
 
 <template>
@@ -29,7 +41,7 @@ const { copy } = useClipboard({ source: name });
     </h1>
 
     <div class="flex justify-center pb-10 space-x-4">
-      <code class="text-2xl cursor-pointer" @click="copy()">{{ name }}</code>
+      <code class="text-2xl cursor-pointer" @click="copyToClipboard()">{{ name }}</code>
     </div>
     <div class="flex justify-center pb-10 space-x-4 text-gray-400">
       <button @click.prevent="generate">generate</button>
