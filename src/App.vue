@@ -4,7 +4,7 @@ import Haikunator from 'haikunator';
 import { useClipboard, useWebNotification } from '@vueuse/core';
 
 const haikunator = new Haikunator({
-  seed: 'custom-seed',
+  seed: performance.now().toString(),
   defaults: {
     tokenLength: 0,
   },
