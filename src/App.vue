@@ -1,7 +1,14 @@
 <script setup>
-import { onMounted, ref } from 'vue';
-import Haikunator from 'haikunator';
 import { useClipboard, useWebNotification } from '@vueuse/core';
+import Haikunator from 'haikunator';
+import Plausible from 'plausible-tracker';
+import { onMounted, ref } from 'vue';
+
+const plausible = Plausible({
+    domain: 'rng.thomaswilhelm.at',
+    trackLocalhost: false,
+    apiHost: 'https://plausible.thomaswilhelm.at',
+});
 
 const haikunator = new Haikunator({
   seed: performance.now().toString(),
