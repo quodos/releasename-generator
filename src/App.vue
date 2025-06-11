@@ -40,9 +40,11 @@ const copyToClipboard = () => {
       releasename generator
     </h1>
 
-    <div
-      class="group mb-20 flex cursor-pointer items-center justify-center space-x-4"
+    <button
+      class="group mb-20 flex cursor-pointer items-center justify-center space-x-4 focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-emerald-500 rounded-sm"
       @click="copyToClipboard()"
+      @keyup.space="copyToClipboard()"
+      @keyup.enter="copyToClipboard()"
     >
       <code class="text-2xl">{{ name }}</code>
       <span class="opacity-20 transition-opacity group-hover:opacity-60">
@@ -68,10 +70,10 @@ const copyToClipboard = () => {
           />
         </svg>
       </span>
-    </div>
+    </button>
     <div class="flex justify-center space-x-4 text-gray-400">
       <button
-        class="rounded-full bg-emerald-600 px-6 py-3 text-white transition-colors hover:bg-emerald-700"
+        class="rounded-full bg-emerald-600 px-6 py-3 text-white transition-colors hover:bg-emerald-700 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
         @click.prevent="generate"
       >
         Generate
@@ -79,10 +81,3 @@ const copyToClipboard = () => {
     </div>
   </main>
 </template>
-
-<style>
-html,
-body {
-  @apply bg-gray-900 text-gray-50;
-}
-</style>
