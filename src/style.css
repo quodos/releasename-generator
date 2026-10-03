@@ -1,5 +1,37 @@
 @import "tailwindcss";
 
+@theme {
+  --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+
+  --color-ink: #07071a;
+  --color-aurora-violet: #8b5cf6;
+  --color-aurora-teal: #2dd4bf;
+  --color-aurora-amber: #fbbf24;
+  --color-aurora-pink: #f472b6;
+
+  --animate-drift-1: drift-1 22s ease-in-out infinite alternate;
+  --animate-drift-2: drift-2 28s ease-in-out infinite alternate;
+  --animate-drift-3: drift-3 34s ease-in-out infinite alternate;
+
+  @keyframes drift-1 {
+    to {
+      transform: translate(30vw, 20vh) scale(1.2);
+    }
+  }
+  @keyframes drift-2 {
+    to {
+      transform: translate(-25vw, -15vh) scale(0.85);
+    }
+  }
+  @keyframes drift-3 {
+    to {
+      transform: translate(-15vw, 25vh) scale(1.15);
+    }
+  }
+}
+
 html {
-  @apply min-h-full antialiased;
+  @apply min-h-full bg-ink font-display text-white antialiased;
+  color-scheme: dark;
 }

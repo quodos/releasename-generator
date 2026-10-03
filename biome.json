@@ -6,12 +6,19 @@
     "useIgnoreFile": true
   },
   "files": {
-    "includes": ["**", "!**/.idea"]
+    "includes": ["**", "!**/.idea", "!public"]
   },
   "formatter": {
-    "indentStyle": "space"
+    "indentStyle": "space",
+    "lineWidth": 120
   },
-  "assist": { "actions": { "source": { "organizeImports": "on" } } },
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  },
   "linter": {
     "rules": {
       "preset": "recommended",
