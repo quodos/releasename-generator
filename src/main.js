@@ -1,7 +1,7 @@
-import { createApp } from 'vue';
-import '@/assets/styles/main.css';
-import '@/assets/styles/tailwind.css';
-import App from '@/App.vue';
+import "@fontsource-variable/bricolage-grotesque";
+import "@fontsource-variable/jetbrains-mono";
+import { createApp } from "vue";
+import App from "@/App.vue";
+import "@/style.css";
 
-const app = createApp(App);
-app.mount('#app');
+createApp(App).mount("#app");
