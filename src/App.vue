@@ -1,14 +1,7 @@
 <script setup>
 import { useClipboard, useWebNotification } from '@vueuse/core';
 import Haikunator from 'haikunator';
-import Plausible from 'plausible-tracker';
 import { onMounted, ref } from 'vue';
-
-const plausible = Plausible({
-    domain: 'rng.thomaswilhelm.at',
-    trackLocalhost: false,
-    apiHost: 'https://plausible.thomaswilhelm.at',
-});
 
 const haikunator = new Haikunator({
   seed: performance.now().toString(),
@@ -47,7 +40,7 @@ const copyToClipboard = () => {
       releasename generator
     </h1>
 
-    <button
+    <button type="button"
       class="group mb-20 flex cursor-pointer items-center justify-center space-x-4 focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-emerald-500 rounded-sm"
       @click="copyToClipboard()"
       @keyup.space="copyToClipboard()"
@@ -55,7 +48,7 @@ const copyToClipboard = () => {
     >
       <code class="text-2xl">{{ name }}</code>
       <span class="opacity-20 transition-opacity group-hover:opacity-60">
-        <svg
+        <svg aria-hidden="true"
           width="18"
           height="19"
           viewBox="0 0 18 19"
@@ -79,7 +72,7 @@ const copyToClipboard = () => {
       </span>
     </button>
     <div class="flex justify-center space-x-4 text-gray-400">
-      <button
+      <button type="button"
         class="rounded-full bg-emerald-600 px-6 py-3 text-white transition-colors hover:bg-emerald-700 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500"
         @click.prevent="generate"
       >
