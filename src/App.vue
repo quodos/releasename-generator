@@ -66,13 +66,13 @@ onKeyStroke(["c", "C"], (event) => {
         :class="glowing ? 'opacity-100' : 'opacity-70'"
       >
         <div
-          class="absolute -top-[20vmax] -left-[15vmax] size-[55vmax] motion-safe:animate-drift-1 rounded-full bg-aurora-violet opacity-40 blur-[120px]"
+          class="absolute -top-[20vmax] -left-[15vmax] size-[55vmax] rounded-full bg-aurora-violet opacity-40 blur-[120px] motion-safe:animate-drift-1"
         />
         <div
-          class="absolute -right-[20vmax] -bottom-[25vmax] size-[60vmax] motion-safe:animate-drift-2 rounded-full bg-aurora-teal opacity-30 blur-[120px]"
+          class="absolute -right-[20vmax] -bottom-[25vmax] size-[60vmax] rounded-full bg-aurora-teal opacity-30 blur-[120px] motion-safe:animate-drift-2"
         />
         <div
-          class="absolute top-[30%] left-[45%] size-[35vmax] motion-safe:animate-drift-3 rounded-full bg-aurora-pink opacity-25 blur-[120px]"
+          class="absolute top-[30%] left-[45%] size-[35vmax] rounded-full bg-aurora-pink opacity-25 blur-[120px] motion-safe:animate-drift-3"
         />
       </div>
       <div
@@ -81,19 +81,19 @@ onKeyStroke(["c", "C"], (event) => {
     </div>
 
     <main class="mx-auto flex min-h-dvh max-w-6xl flex-col items-center justify-center gap-12 px-4 py-16 sm:gap-16">
-      <h1 class="font-mono text-white/50 text-xs uppercase tracking-[0.35em] sm:text-sm">
+      <h1 class="font-mono text-xs tracking-[0.35em] text-white/50 uppercase sm:text-sm">
         Release name generator
       </h1>
 
       <button
         type="button"
-        class="group relative cursor-pointer rounded-3xl px-4 py-2 text-center focus-visible:outline-2 focus-visible:outline-aurora-teal focus-visible:outline-offset-8"
+        class="group relative cursor-pointer rounded-3xl px-4 py-2 text-center focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-aurora-teal"
         :aria-label="`Copy ${name} to clipboard`"
         @click="copyName"
       >
         <span
           aria-hidden="true"
-          class="flex flex-wrap items-baseline justify-center font-bold text-[clamp(2.75rem,9vw,7.5rem)] leading-[0.95] tracking-tight"
+          class="flex flex-wrap items-baseline justify-center text-[clamp(2.75rem,9vw,7.5rem)] leading-[0.95] font-bold tracking-tight"
         >
           <template v-for="(word, index) in nameWords" :key="index">
             <span
@@ -120,7 +120,7 @@ onKeyStroke(["c", "C"], (event) => {
         </span>
         <span
           aria-hidden="true"
-          class="-bottom-8 absolute inset-x-0 font-mono text-white/40 text-xs opacity-0 transition-opacity group-hover:opacity-100"
+          class="absolute inset-x-0 -bottom-8 font-mono text-xs text-white/40 opacity-0 transition-opacity group-hover:opacity-100"
         >
           {{ copied ? "copied!" : "click to copy" }}
         </span>
@@ -129,7 +129,7 @@ onKeyStroke(["c", "C"], (event) => {
       <div class="flex flex-wrap items-center justify-center gap-3">
         <button
           type="button"
-          class="inline-flex cursor-pointer items-center gap-2.5 rounded-full bg-white px-7 py-3.5 font-semibold text-ink shadow-[0_0_40px_-8px] shadow-aurora-violet transition hover:scale-105 hover:shadow-aurora-teal focus-visible:outline-2 focus-visible:outline-aurora-teal focus-visible:outline-offset-4 active:scale-95"
+          class="inline-flex cursor-pointer items-center gap-2.5 rounded-full bg-white px-7 py-3.5 font-semibold text-ink shadow-[0_0_40px_-8px] shadow-aurora-violet transition hover:scale-105 hover:shadow-aurora-teal focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-aurora-teal active:scale-95"
           @click="generate"
         >
           <svg
@@ -154,7 +154,7 @@ onKeyStroke(["c", "C"], (event) => {
         <button
           v-if="isSupported"
           type="button"
-          class="inline-flex min-w-36 cursor-pointer items-center justify-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-7 py-3.5 font-semibold backdrop-blur transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-aurora-teal focus-visible:outline-offset-4 active:scale-95"
+          class="inline-flex min-w-36 cursor-pointer items-center justify-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-7 py-3.5 font-semibold backdrop-blur transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-aurora-teal active:scale-95"
           @click="copyName"
         >
           <svg
@@ -188,7 +188,7 @@ onKeyStroke(["c", "C"], (event) => {
         </button>
       </div>
 
-      <p class="hidden items-center gap-4 font-mono text-white/40 text-xs pointer-fine:flex">
+      <p class="hidden items-center gap-4 font-mono text-xs text-white/40 pointer-fine:flex">
         <span><kbd class="rounded border border-white/15 bg-white/5 px-1.5 py-0.5">Space</kbd> new name</span>
         <span><kbd class="rounded border border-white/15 bg-white/5 px-1.5 py-0.5">C</kbd> copy</span>
       </p>
