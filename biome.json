@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.5.15/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.6.8/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -23,12 +23,15 @@
     "rules": {
       "preset": "recommended",
       "nursery": {
-        "useSortedClasses": "error"
+        "useTailwindSortedClasses": "error"
       }
     }
   },
   "html": {
     "experimentalFullSupportEnabled": true
+  },
+  "tailwind": {
+    "stylesheet": "src/style.css"
   },
   "css": {
     "parser": {
